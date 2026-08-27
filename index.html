@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Leicester Footprint — track your estimated carbon footprint across travel, energy and shopping, and discover greener local options in Leicester. No account, data stays on your device."
+    />
+    <meta name="theme-color" content="#0b1220" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Footprint" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>Leicester Footprint</title>
+    <script>
+      // Apply theme before paint to avoid a flash of the wrong theme (FOUC).
+      (function () {
+        try {
+          var stored = localStorage.getItem('lf.theme') || 'system';
+          var mql = window.matchMedia('(prefers-color-scheme: dark)');
+          var dark = stored === 'dark' || (stored === 'system' && mql.matches);
+          document.documentElement.classList.toggle('dark', dark);
+        } catch (e) {
+          /* private mode / storage disabled — fall back to light */
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

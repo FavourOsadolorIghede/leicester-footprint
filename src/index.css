@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light — cool, slightly blue-tinted, premium not plain */
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 214 90% 52%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 214 32% 94%;
+    --secondary-foreground: 222 47% 20%;
+
+    --muted: 214 32% 94%;
+    --muted-foreground: 215 20% 45%;
+
+    --accent: 199 89% 94%;
+    --accent-foreground: 222 47% 20%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 26% 88%;
+    --input: 214 26% 86%;
+    --ring: 214 90% 52%;
+
+    --radius: 0.75rem;
+
+    /* Category accents */
+    --cat-travel: 214 90% 52%;
+    --cat-energy: 38 92% 50%;
+    --cat-food: 152 62% 42%;
+    --cat-waste: 268 70% 60%;
+    --cat-community: 340 78% 58%;
+
+    /* Chart series */
+    --chart-1: 214 90% 52%;
+    --chart-2: 152 62% 42%;
+    --chart-3: 38 92% 50%;
+    --chart-4: 268 70% 60%;
+    --chart-5: 340 78% 58%;
+
+    /* Animated hero */
+    --hero-glow: 199 95% 60%;
+    --hero-line: 214 90% 55%;
+  }
+
+  .dark {
+    /* Dark — deep blue-black, electric blue accents (not pure black) */
+    --background: 222 47% 7%;
+    --foreground: 210 40% 96%;
+
+    --card: 222 40% 10%;
+    --card-foreground: 210 40% 96%;
+
+    --popover: 222 44% 9%;
+    --popover-foreground: 210 40% 96%;
+
+    --primary: 199 95% 58%;
+    --primary-foreground: 222 47% 8%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 96%;
+
+    --muted: 217 33% 15%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 40% 20%;
+    --accent-foreground: 210 40% 96%;
+
+    --destructive: 0 63% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 217 33% 18%;
+    --input: 217 33% 20%;
+    --ring: 199 95% 58%;
+
+    --cat-travel: 199 95% 60%;
+    --cat-energy: 38 95% 58%;
+    --cat-food: 152 60% 52%;
+    --cat-waste: 268 78% 70%;
+    --cat-community: 340 82% 66%;
+
+    --chart-1: 199 95% 60%;
+    --chart-2: 152 60% 52%;
+    --chart-3: 38 95% 58%;
+    --chart-4: 268 78% 70%;
+    --chart-5: 340 82% 66%;
+
+    --hero-glow: 199 95% 55%;
+    --hero-line: 199 95% 60%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: 'cv11', 'ss01';
+    /* Never scroll sideways */
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  html,
+  #root {
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  /* App-mode niceties (standalone PWA) — never applied in a normal browser tab */
+  html[data-app-mode='true'] body {
+    overscroll-behavior: none;
+    user-select: none;
+  }
+  html[data-app-mode='true'] button,
+  html[data-app-mode='true'] a,
+  html[data-app-mode='true'] [role='tab'] {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer components {
+  .card-surface {
+    @apply rounded-2xl border bg-card text-card-foreground shadow-sm;
+  }
+
+  .safe-b {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .safe-t {
+    padding-top: env(safe-area-inset-top);
+  }
+}

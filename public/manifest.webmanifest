@@ -1,0 +1,13 @@
+{
+  "name": "Leicester Footprint",
+  "short_name": "Footprint",
+  "description": "Track your estimated carbon footprint across travel, energy and shopping in Leicester.",
+  "start_url": "/app?app=1",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0b1220",
+  "theme_color": "#0b1220",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
